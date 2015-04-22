@@ -85,9 +85,16 @@ resource "aws_instance" "private" {
     Name = "private-instance"
   }
 
+
+  /******************************
+    vvv THIS WILL NOT WORK vvv
+  *******************************/
   provisioner "remote-exec" {
     inline = "echo remote-exec works >> /tmp/remote-exec"
   }
+  /******************************
+    ^^^ LET'S MAKE IT WORK ^^^
+  *******************************/
 }
 
 output "public_instance_ip" {
